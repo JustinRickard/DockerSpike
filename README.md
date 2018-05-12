@@ -13,7 +13,7 @@ run `yarn start`
 
 ## Create a docker image
 
-run `docker build -t <app-name>`
+run `docker build . -t <app-name>`
 
 ## Run the docker image
 
@@ -29,8 +29,13 @@ run `docker stop <container-name>`
 
 e.g. `docker stop myapp`
 
-## Delete the docker image
+## Delete the docker container
 
 run `docker container rm <container-name>`
 
 e.g `docker container rm myapp`
+
+## Delete the docker image
+
+run `sudo docker rmi <app-name> --force`
+e.g. `sudo docker rmi myapp --force`
