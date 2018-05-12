@@ -1,0 +1,16 @@
+{
+  "name": "DockerSpike",
+  "version": "1.0.0",
+  "description": "Spike out of docker and kubernetes",
+  "main": "src/app.js",
+  "repository": "https://github.com/JustinRickard/DockerSpike.git",
+  "author": "Justin Rickard <justinr86.jr@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "scripts" : {
+    "start": "node src/server.js"
+  }
+}
