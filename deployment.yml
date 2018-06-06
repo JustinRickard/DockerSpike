@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-spike-deployment
+  labels:
+    app: docker-spike
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: docker-spike
+  template:
+    metadata:
+      labels:
+        app: docker-spike
+    spec:
+      containers:
+      - name: docker-spike
+        image: justinrickard/dockerspike:latest
+        ports:
+        - containerPort: 3000

@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: docker-spike-service
+  labels:
+    app: docker-spike
+spec:
+  type: NodePort
+  selector:
+    app: docker-spike
+  ports:
+  - protocol: TCP
+    port: 3000
+    nodePort: 30001
