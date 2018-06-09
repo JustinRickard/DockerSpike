@@ -74,22 +74,22 @@ For linux, run `curl -Lo minikube https://storage.googleapis.com/minikube/releas
 
 Ensure that virtualization is enabled in the BIOS. If it is not enabled, minikube will fail to start, indicating this as the reason.
 
-## Run Minikube
+### Run Minikube
 `minikube start`
 
 Put the kettle on (this might take a while if running for the first time)
 
-## Deploy the service
+### Deploy the service
 `kubectl create -f service.yml`
 
 You can use `apply` in place of create to update an existing service
 
-## Deploy the pods
+### Deploy the pods
 `kubectl create -f deployment.yml`
 
 You can use `apply` in place of create to update an existing deployment
 
-## Get the URL for the service
+### Get the URL for the service
 `minikube service docker-spike-service --url`
 
 Navigate to the URL in your browser and check the app is running.
