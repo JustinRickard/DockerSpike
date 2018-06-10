@@ -100,6 +100,8 @@ Navigate to the URL in your browser and check the app is running.
 
 ## Run in Google Cloud
 
+Note: The Google 'Kontainer Engine' now appears to have been renamed to 'Kubernetes Engine'.
+
 ### Create a Google Cloud account
 
 In a browser, go to the Google Cloud Console. `https://console.cloud.google.com`
@@ -107,18 +109,38 @@ In a browser, go to the Google Cloud Console. `https://console.cloud.google.com`
 1. Create an account
 2. Go to the Kubernetes engine
 3. Create a new cluster (recommended: choose the smallest instance type)
+4. In the search bar, find "APIs and services", and ensure that the Compute Engine, Kubernetes Engine and Container Registry are enabled. They should be by default.
 
 ### Install the Google Cloud CLI
 
-see `https://cloud.google.com/sdk/`
+If you installed kubectl previously with apt-get or yum, uninstall t by running `apt-get remove kubectl`. This will allow the Google Cloud SDK to be installed with the kubectl component.
 
-For installing on Linux with apt-get, see `https://cloud.google.com/sdk/docs/downloads-apt-get`
+Go to `https://cloud.google.com/sdk/` for installation instructions.
+
+If using Linux, go to the below and download the .tar.gz file. Using apt-get or yum to install will cause issues when it comes to installing and updating gcloud components.
+
+`https://cloud.google.com/sdk/docs/quickstart-linux`
 
 In your terminal, run `gcloud init` to set up the gcloud CLI.
 
 Select the cluster created earlier to connect to.
 
 Run `gcloud container clusters list` to check your cluster is running with 3 nodes.
+
+Check if kubectl component is installed
+
+`gcloud components list`
+
+If kubectl is not installed, run
+
+`gcloud components install kubectl`
+
+To check your configuration, run
+
+`gcloud config list`
+
+Config settings can be set using `set`. E.g. `gcloud config set compute/zone europe-west4-b`
+
 
 ### Deploy to the Google Cloud
 
