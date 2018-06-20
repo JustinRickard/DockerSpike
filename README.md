@@ -142,7 +142,7 @@ To check your configuration, run
 Config settings can be set using `set`. E.g. `gcloud config set compute/zone europe-west4-b`
 
 
-### Deploy to the Google Cloud
+### Deploy to the Google Cloud (automated build on Docker Hub)
 
 If you find you are not autheticated for the cluster, simply run:
 
@@ -165,3 +165,25 @@ Check the pods are up:
 `kubectl get pods`
 
 In your browser, go to the IP and port of the service. You should see the hello text of the app.
+
+### Make an update, using a manual docker build
+
+Edit the app and build a new docker container
+
+`docker build -t justinrickard/rrdemo:<version> .`
+
+Commit the container
+
+`docker commit -a "<your name>" -m "<message>" <container ID> justinrickard/rrdemo:<version>`
+
+Log in to docker hub
+
+`docker login -u <username> -p <password>`
+
+Push to docker hub
+
+`docker push justinrickard/rrdemo:<version>`
+
+Update the deployment.yml file to deploy the image: justinrickard/rrdemo:<version>
+
+`kubectl apply -f deployment.yml`
