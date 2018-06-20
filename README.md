@@ -144,3 +144,24 @@ Config settings can be set using `set`. E.g. `gcloud config set compute/zone eur
 
 ### Deploy to the Google Cloud
 
+If you find you are not autheticated for the cluster, simply run:
+
+ `gcloud container clusters get-credentials <cluster-name>`
+
+Create / update the service:
+
+`kubectl apply -f service.yml`
+
+Create / update the deployment:
+
+`kubectl apply -f deployment.yml`
+
+Check the service exists:
+
+`kubectl get services` (take a note of the IP address and the port number)
+
+Check the pods are up:
+
+`kubectl get pods`
+
+In your browser, go to the IP and port of the service. You should see the hello text of the app.
